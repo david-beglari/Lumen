@@ -4,6 +4,7 @@
 
 $router->group(['namespace' => 'API\V1'], function($authRoutes)
 {
-    $authRoutes->get('/', 'ShopController@index');
+    $authRoutes->get('shops', 'ShopController@index');
+    $authRoutes->get('products', 'ProductController@index');
 });
 
