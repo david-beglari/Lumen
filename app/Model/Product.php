@@ -17,7 +17,7 @@ class Product extends Model
      * @var array
      */
     protected $fillable = [
-        'shop',
+        'shop_id',
         'name',
         'quantity',
         'price'
@@ -28,6 +28,6 @@ class Product extends Model
      */
     public function shop()
     {
-        return $this->belongsTo('App\Model\Shop', 'shop', 'id');
+        return $this->belongsTo('App\Model\Shop', 'shop_id', 'id');
     }
 }

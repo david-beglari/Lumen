@@ -25,6 +25,6 @@ class Shop extends Model
      */
     public function products()
     {
-        return $this->hasMany('App\Model\Product', 'shop', 'id');
+        return $this->hasMany('App\Model\Product', 'shop_id', 'id');
     }
 }
