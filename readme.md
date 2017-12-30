@@ -8,6 +8,19 @@
 
 Laravel Lumen is a stunningly fast PHP micro-framework for building web applications with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Lumen attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as routing, database abstraction, queueing, and caching.
 
+##Installation instructions
+
+* `git clone <repository-url>` this repository
+* `cd Lumen`
+* `composer install`
+
+Please now you have to fix .env file, APP_KEY is required
+
+Run
+
+* `php artisan migrate`
+* `php artisan db:seed`
+
 ## Official Documentation
 
 Documentation for the framework can be found on the [Lumen website](http://lumen.laravel.com/docs).

@@ -30,4 +30,51 @@ class ProductController extends ApiController
 
         return $results;
     }
+
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function store(Request $request)
+    {
+        $validator = \Validator::make($request->all(), [
+            'shop_id' => 'required',
+            'name' => 'required',
+            'quantity' => 'required|numeric',
+            'price' => 'required|numeric',
+        ]);
+        if ($validator->fails()) {
+            $errorMessage = "Validation Failed";
+            foreach ($validator->errors()->all() as $key => $value) {
+                $errorMessage = $errorMessage . '. ' . $value;
+            }
+            return $this->_info(false, 422, $errorMessage);
+        }
+
+        return parent::store($request);
+    }
+
+    /**
+     * @param Request $request
+     * @param int $id
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function update(Request $request, $id)
+    {
+        $validator = \Validator::make($request->all(), [
+            'shop_id' => 'required',
+            'name' => 'required',
+            'quantity' => 'required|numeric',
+            'price' => 'required',
+        ]);
+        if ($validator->fails()) {
+            $errorMessage = "Validation Failed";
+            foreach ($validator->errors()->all() as $key => $value) {
+                $errorMessage = $errorMessage . '. ' . $value;
+            }
+            return $this->_info(false, 422, $errorMessage);
+        }
+
+        return parent::update($request, $id);
+    }
 }
